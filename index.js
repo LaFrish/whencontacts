@@ -5,9 +5,12 @@ var mongoose = require("./db/connection");
 
 var app     = express();
 
-var Student = mongoose.model("Student");
+var Contact = mongoose.model("Contact");
 
-app.set("port", process.env.PORT || 3001)
+// if(process.env.NODE_ENV !== "production"){
+//   var env = require("./env");
+// }
+app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -23,39 +26,40 @@ app.get("/", function(req, res){
   res.render("app-welcome");
 });
 
-app.get("/students", function(req, res){
-  Student.find({}).then(function(students){
-    res.render("students-index", {
-      students: students
+app.get("/contacts", function(req, res){
+  Contact.find({}).then(function(contacts){
+    res.render("contacts-index", {
+      contacts: contacts
     });
   });
 });
 
-app.get("/students/:name", function(req, res){
-  Student.findOne({name: req.params.name}).then(function(student){
-    res.render("students-show", {
-      student: student
+app.get("/contacts/:name", function(req, res){
+  Contact.findOne({name: req.params.name}).then(function(contact){
+    res.render("contacts-show", {
+      contact: contact
     });
   });
 });
-app.post("/students", function(req, res){
-  Student.create(req.body.student).then(function(student){
-    res.redirect("/students/" + student.name);
-  })
-});
 
-
-app.post("/students/:name/delete", function(req, res){
-  Student.findOneAndRemove({name: req.params.name}).then(function(){
-    res.redirect("/students")
+app.post("/contacts", function(req, res){
+  Contact.create(req.body.contact).then(function(contact){
+    res.redirect("/contacts/" + contact.name);
   });
 });
 
-app.post("/students/:name", function(req, res){
-  Student.findOneAndUpdate({name: req.params.name}, req.body.student,{new: true}).then(function(student){
-    res.redirect("/students/" + student.name);
+app.post("/contacts/:name/delete", function(req, res){
+  Contact.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/contacts")
   });
 });
+
+app.post("/contacts/:name", function(req, res){
+  Contact.findOneAndUpdate({name: req.params.name}, req.body.contact, {new: true}).then(function(contact){
+    res.redirect("/contacts/" + contact.name);
+  });
+});
+
 app.listen(app.get("port"), function(){
-  console.log("It's ALIIIVE");
+  console.log("Look at me working it!!");
 });

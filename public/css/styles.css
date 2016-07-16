@@ -1,3 +1,20 @@
+
+@import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(https://fonts.googleapis.com/css?family=Happy+Monkey|Life+Savers:400,700|Glass+Antiqua);
+html{
+  font-family: 'Cutive Mono', Arial, serif; font-weight: 400;
+}
 body {
+    background-color: #ECC9C7;
   text-align:center;
+
+}
+container{
+  background-color: #9694A2;
+  margin: 0 0 0 0;
+  color: white;
+}
+
+button{
+  background-color: #9694A2;
 }
