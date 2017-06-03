@@ -1,0 +1,17 @@
+{{#unless user}}
+<h2>That user could not be found!</h2>
+{{else}}
+<h2>Name:  {{user.name}}</h2>
+<h2>Phone: {{user.phone}}</h2>
+<h2>Email: {{user.email}}</h2>
+
+
+
+
+<form action="/users/{{user.name}}" method="post">
+  <input type="text" name="user[name]" placeholder="Name" value="{{user.name}}" />
+  <input type="text" name="user[phone]" placeholder="Phone" value="{{user.phone}}" />
+  <input type="text" name="user[email]" placeholder="Email" value="{{user.email}}" />
+<button type="sumbit">Edit User</button> <form method="post" action="/users/{{user.name}}/delete"><button type="submit">Delete User</button></form>
+</form>
+{{/unless}}

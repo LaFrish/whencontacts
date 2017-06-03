@@ -1,0 +1,12 @@
+<h2>{{users.length}} Users</h2>
+{{#each users as |user index|}}
+<a href="/users/{{user.name}}">{{user.name}}</a></br>
+{{/each}}
+
+<h2> Add User </h2>
+<form action="/users" method="post">
+  <input type="text" name="user[name]" placeholder="Name" />
+  <input type="text" name="user[phone]" placeholder="Phone" />
+  <input type="text" name="user[email]" placeholder="Email" />
+  <button type="submit">Add User</button>
+</form>

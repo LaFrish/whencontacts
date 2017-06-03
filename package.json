@@ -1,21 +1,22 @@
 {
-  "name": "whencontacts",
+  "name": "cornerstone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hilarymasland/whenContacts.git"
+    "url": "git+https://github.com/LaFrish/cornerstone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hilarymasland/whenContacts/issues"
+    "url": "https://github.com/LaFrish/cornerstone/issues"
   },
-  "homepage": "https://github.com/hilarymasland/whenContacts#readme",
+  "homepage": "https://github.com/LaFrish/cornerstone.git#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "express": "^4.13.4",

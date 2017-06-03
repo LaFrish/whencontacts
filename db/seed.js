@@ -1,10 +1,10 @@
 var mongoose = require("./connection");
 var seedData = require("./seeds");
 
-var Contact = mongoose.model("Contact");
+var User = mongoose.model("User");
 
-Contact.remove({}).then(function(){
-  Contact.collection.insert(seedData).then(function(){
+User.remove({}).then(function(){
+  User.collection.insert(seedData).then(function(){
     process.exit();
   });
 });

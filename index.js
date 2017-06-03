@@ -5,7 +5,7 @@ var mongoose = require("./db/connection");
 
 var app     = express();
 
-var Contact = mongoose.model("Contact");
+var User = mongoose.model("User");
 
 // if(process.env.NODE_ENV !== "production"){
 //   var env = require("./env");
@@ -26,37 +26,37 @@ app.get("/", function(req, res){
   res.render("app-welcome");
 });
 
-app.get("/contacts", function(req, res){
-  Contact.find({}).then(function(contacts){
-    res.render("contacts-index", {
-      contacts: contacts
+app.get("/users", function(req, res){
+  User.find({}).then(function(users){
+    res.render("users-index", {
+      users: users
     });
   });
 });
 
-app.get("/contacts/:name", function(req, res){
-  Contact.findOne({name: req.params.name}).then(function(contact){
-    res.render("contacts-show", {
-      contact: contact
+app.get("/users/:name", function(req, res){
+  User.findOne({name: req.params.name}).then(function(user){
+    res.render("users-show", {
+      user: user
     });
   });
 });
 
-app.post("/contacts", function(req, res){
-  Contact.create(req.body.contact).then(function(contact){
-    res.redirect("/contacts/" + contact.name);
+app.post("/users", function(req, res){
+  User.create(req.body.user).then(function(user){
+    res.redirect("/users/" + user.name);
   });
 });
 
-app.post("/contacts/:name/delete", function(req, res){
-  Contact.findOneAndRemove({name: req.params.name}).then(function(){
-    res.redirect("/contacts")
+app.post("/users/:name/delete", function(req, res){
+  User.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/users")
   });
 });
 
-app.post("/contacts/:name", function(req, res){
-  Contact.findOneAndUpdate({name: req.params.name}, req.body.contact, {new: true}).then(function(contact){
-    res.redirect("/contacts/" + contact.name);
+app.post("/users/:name", function(req, res){
+  User.findOneAndUpdate({name: req.params.name}, req.body.user, {new: true}).then(function(user){
+    res.redirect("/users/" + user.name);
   });
 });
 

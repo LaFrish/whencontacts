@@ -1,16 +1,16 @@
 var mongoose = require("mongoose");
 
-var ContactSchema = new mongoose.Schema(
+var UserSchema = new mongoose.Schema(
   {
     name: String,
     phone: String,
     email: String,
   }
 );
-mongoose.model("Contact", ContactSchema);
+mongoose.model("User", UserSchema);
 if(process.env.NODE_ENV == "production"){
   mongoose.connect(process.env.MONGOLAB_URL);
 }else{
-mongoose.connect("mongodb://localhost/whencontacts");
+mongoose.connect("mongodb://localhost/cornerstone");
 }
 module.exports = mongoose;
