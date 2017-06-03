@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hilarymasland/whenContacts.git"
+    "url": "git+https://github.com/LaFrish/cornerstone.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hilarymasland/whenContacts/issues"
+    "url": "https://github.com/LaFrish/cornerstone/issues"
   },
-  "homepage": "https://github.com/hilarymasland/whenContacts#readme",
+  "homepage": "https://github.com/LaFrish/cornerstone#readme",
   "dependencies": {
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0"
